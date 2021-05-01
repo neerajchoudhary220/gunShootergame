@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Balloon shoot game</title>
+     <style>
+       #game_box{
+      /* cursor: none;*/
+        position:absolute;
+       
+        border:4px solid rgb(16, 17, 17);
+        
+   background-color: #141313;
+background-position:center;
+background-repeat: no-repeat;
+background-size: cover;
+       
+   background-color: rgb(22, 107, 187);
+   background-image:url("bb.png");
+        /*background-color: rgb(221, 220, 231);*/
+
+       }
+       img {
+            -drag: none;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+         }
+       body{
+         background-color: rgb(24, 139, 233);
+       }
+      
+     </style>
+    </head>
+    
+    <body>
+      <!---
+      <img src="img/gun.png" height="60px" width="100px" id="gunImg" style="
+      position:absolute;
+      
+      margin:2%;
+margin-left:2%;
+      z-index: 2;
+      ">-->
+      <canvas  id="game_box" onclick="GunShot('sound/GunFire.mp3')"
+      onkeypress="canvasPress()"
+      height="500px" width="450px"
+      onmousemove="my(event)"
+      ></canvas>
+      <div style="display: none;">
+      <label>Gun Left:</label><input type="text" id="gunleft" style="position: absolute;
+      z-index: 2;"><br>
+      <label>mid line left:</label><input type="text" id="midLineLeft" style="position: absolute;
+      z-index: 2;"><br>
+
+
+      
+      
+      
+      <label style="color:white;">canas left:</label><input type="text" id="cL" ><br>
+      
+      
+      
+      <label style="color:white;">bomb random:</label><input type="text" id="Br" ><br>
+      
+      <label style="color:white;">bomb src:</label><input type="text"
+       id="bombImgCount" value="0" ><br>  
+       
+       <label style="color:white;">bomb1 src:</label><input type="text"
+       id="bomb1ImgCount" value="0" ><br>  
+       <label style="color:white;">bomb2 src:</label><input type="text"
+       id="bomb2ImgCount" value="0" ><br>  
+       
+      
+    
+<!--========================FRUITS=======================================-->
+       <!--======== APPLE ===========-->
+       <label style="color:white;">apple src:</label><input type="text"
+       id="appleImgCount" value="0" ><br>  
+       <label style="color:white;">apple1 src:</label><input type="text"
+       id="apple1ImgCount" value="0" ><br> 
+       
+       <label style="color:white;">apple2 src:</label><input type="text"
+       id="apple2ImgCount" value="0" ><br> 
+
+       <!--======== LEMON ===========-->
+       <label style="color:white;">lemon src:</label><input type="text"
+       id="lemonImgCount" value="0" ><br>  
+       <label style="color:white;">lemon1 src:</label><input type="text"
+       id="lemon1ImgCount" value="0" ><br>  
+       <label style="color:white;">lemon2 src:</label><input type="text"
+       id="lemon2ImgCount" value="0" ><br>  
+
+       <!--======== ORANGE ===========-->
+       <label style="color:white;">orange src:</label><input type="text"
+       id="orangeImgCount" value="0" ><br>  
+       <label style="color:white;">orange1 src:</label><input type="text"
+       id="orange1ImgCount" value="0" ><br> 
+       <label style="color:white;">orange2 src:</label><input type="text"
+       id="orange2ImgCount" value="0" ><br> 
+
+      <!--======== mango ===========-->
+      <label style="color:white;">mango src:</label><input type="text"
+      id="mangoImgCount" value="0" ><br>  
+      <label style="color:white;">mango1 src:</label><input type="text"
+      id="mango1ImgCount" value="0" ><br>  
+      <label style="color:white;">mango2 src:</label><input type="text"
+      id="mango2ImgCount" value="0" ><br>  
+
+      <!--======== pineapple ===========-->
+      <label style="color:white;">pineapple src:</label><input type="text"
+      id="pineappleImgCount" value="0" ><br> 
+      <label style="color:white;">pineapple1 src:</label><input type="text"
+      id="pineapple1ImgCount" value="0" ><br> 
+      <label style="color:white;">pineapple2 src:</label><input type="text"
+      id="pineapple2ImgCount" value="0" ><br> 
+
+
+<!-- -=============================== SINGLE BULLET ================-->
+
+       <label style="color:white;">bullet1 src:</label><input type="text"
+       id="bullet1ImgCount" value="0" ><br> 
+       <label style="color:white;">bullet2 src:</label><input type="text"
+       id="bullet2ImgCount" value="0" ><br> 
+       <label style="color:white;">bullet3 src:</label><input type="text"
+       id="bullet3ImgCount" value="0" ><br> 
+
+<!--=====================================================================-->
+<!--============================BULLET 2 PACKAGE =========================================-->
+<label style="color:white;">bullet2_package src:</label><input type="text"
+id="bullet2_packageImgCount" value="0" ><br> 
+<label style="color:white;">bullet21_package src:</label><input type="text"
+id="bullet21_packageImgCount" value="0" ><br> 
+<label style="color:white;">bullet22_package src:</label><input type="text"
+id="bullet22_packageImgCount" value="0" ><br> 
+
+<!--============================BULLET 3 PACKAGE =========================================-->
+<label style="color:white;">bullet3_package src:</label><input type="text"
+id="bullet3_packageImgCount" value="0" ><br> 
+<label style="color:white;">bullet31_package src:</label><input type="text"
+id="bullet31_packageImgCount" value="0" ><br> 
+<label style="color:white;">bullet32_package src:</label><input type="text"
+id="bullet32_packageImgCount" value="0" ><br> 
+
+<!--============================BULLET 5 PACKAGE =========================================-->
+
+<label style="color:white;">bullet5_package src:</label><input type="text"
+id="bullet5_packageImgCount" value="0" ><br> 
+<label style="color:white;">bullet51_package src:</label><input type="text"
+id="bullet51_packageImgCount" value="0" ><br> 
+
+
+
+       <div style="position: relative; top:20px;">
+
+       <label style="color:white;">bullet Left:</label><input type="text" id="bL" ><br>
+       <label style="color:white;">oy:</label><input type="text" id="gunY" ><br>
+       <label style="color:white;">rH:</label><input type="text" id="rH" ><br>
+      </div>
+   </div>
+   
+<script src="js/gloabalvar.js"></script>
+<script src="js/random.js"></script>
+<script src="js/object.js"></script>
+
+<script src="js/gunposition.js"></script>
+<script src="js/arrow.js"></script>
+<script src="js/draw.js"></script>
+<script src="js/midline.js"></script>
+<script src="js/bulletrunning.js"></script>
+<script src="js/drawbullet.js"></script>
+<script src="js/bomb.js"></script>
+<script src="js/bomb1.js"></script>
+<script src="js/bomb2.js"></script>
+<script src="js/apple.js"></script>
+<script src="js/apple1.js"></script>
+<script src="js/apple2.js"></script>
+<script src="js/bulletShoot.js"></script>
+<script src="js/appleShoot.js"></script>
+<script src="js/lemonShoot.js"></script>
+<script src="js/orangeShoot.js"></script>
+<script src="js/mangoShoot.js"></script>
+<script src="js/pineappleShoot.js"></script>
+
+<script src="js/shootobject.js"></script>
+<script src="js/scoreTxt.js"></script>
+<script src="js/bulletCount.js"></script>
+<script src="js/bullet1.js"></script>
+<script src="js/bullet2.js"></script>
+<script src="js/bullet3.js"></script>
+<script src="js/bullet2_pack.js"></script>
+<script src="js/bullet21_pack.js"></script>
+<script src="js/bullet22_pack.js"></script>
+<script src="js/bullet3_pack.js"></script>
+<script src="js/bullet31_pack.js"></script>
+<script src="js/bullet32_pack.js"></script>
+<script src="js/bullet5_pack.js"></script>
+<script src="js/bullet51_pack.js"></script>
+<script src="js/lemon.js"></script>
+<script src="js/lemon1.js"></script>
+<script src="js/lemon2.js"></script>
+<script src="js/orange.js"></script>
+<script src="js/orange1.js"></script>
+<script src="js/orange2.js"></script>
+<script src="js/mango.js"></script>
+<script src="js/mango1.js"></script>
+<script src="js/mango2.js"></script>
+<script src="js/pineapple.js"></script>
+<script src="js/pineapple1.js"></script>
+<script src="js/pineapple2.js"></script>
+<script src="js/game_over.js"></script>
+<script>
+ 
+</script>
+
+
+
+
+
+<script>
+function Game_theme()
+{
+var theme = new Audio("theme.mp3").play();
+theme.volume=0.2;
+theme.loop=true;
+}
+
+  function callFun()
+  {
+midline();
+bullet();
+
+
+  }
+
+  function cealrrightSide()
+{
+clearR = canvas.getContext("2d");
+clearR.clearRect(152,0,width,height+100);
+}
+</script>
+
+<script src="js/windowonload.js"></script>
+</body>
+</html>

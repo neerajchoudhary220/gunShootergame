@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Compare two number
+        </title>
+
+    </head>
+    <body>
+        <label>Enter number:</label>
+        <input type="number" id="myNumber">
+        <br>
+        <input type="button" value="click" onclick="my()">
+        <script>
+            function my()
+            {
+                var number = document.getElementById('myNumber').value;
+                if(number==10||(number<5 && number>2))
+                    {
+                        alert("This number between 2 to 5");
+                    }
+                    else{
+                        alert("error");
+                    }
+
+            }
+        </script>
+    </body>
+</html>

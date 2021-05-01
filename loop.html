@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <input type="button" value="start" onclick="my()">
+        <script>
+            var t;
+            var c=0;
+            window.onclick=function my(e)
+            {
+               
+                    console.log(c);
+
+c=c+1;
+t=setTimeout(my,1000);
+if(c>=10)
+{
+    c=0;
+    console.log("Stop");
+    clearTimeout(t);
+}
+
+}
+
+                
+                
+        </script>
+    </body>
+</html>
