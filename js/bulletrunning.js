@@ -9,12 +9,12 @@ window.onclick=function my(e)
  {
 
  
-a=a+50;
+a=a+20;
 //a=a+1;
 
 //t=setTimeout(my,300);
 t=setTimeout(my,0);
-if(a==100)
+if(a==40)
 {
   new Audio('sound/GunFire.mp3').play();
   TotalBullet=TotalBullet-1;
